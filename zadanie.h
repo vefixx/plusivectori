@@ -27,4 +27,8 @@ void Zadanie4();
 void CountPosNeg(const vector<int>& v, int& neg, int& pos, int& zero);
 void Zadanie5();
 
+// 6
+void ReverseArray(const vector<int>& v);
+void Zadanie6();
+
 #endif //PLUSIVECTORI_ZADANIE1_H

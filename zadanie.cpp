@@ -116,6 +116,18 @@ void Zadanie5() {
   cout << "Нулей: " << zero << endl;
 }
 
+// ------------------ 6
+void ReverseArray(const vector<int> &v) {
+
+}
+
+void Zadanie6() {
+
+}
+
+
+
+
 
 
 
