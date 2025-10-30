@@ -159,6 +159,37 @@ void Zadanie7() {
   cout << "Количество локальных максимумов: " << LocalMaximumCount(v) << endl;
 }
 
+// ------------------------ 9
+vector<int> Merge(const vector<int> &a, const vector<int> &b) {
+  vector<int> merged;
+  for (int i : a) {
+    merged.push_back(i);
+  }
+
+  for (int i : b) {
+    merged.push_back(i);
+  }
+
+  return merged;
+}
+
+void Zadanie9() {
+  cout << "Массив №1:" << endl;
+  vector<int> a = WriteVector();
+  cout << "Массив №2:" << endl;
+  vector<int> b = WriteVector();
+
+  vector<int> merged = Merge(a,b);
+
+  cout << "Объединенный массив: ";
+
+  for (int i : merged) {
+    cout << i << " ";
+  }
+}
+
+
+
 
 
 
