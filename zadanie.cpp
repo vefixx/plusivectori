@@ -117,12 +117,29 @@ void Zadanie5() {
 }
 
 // ------------------ 6
-void ReverseArray(const vector<int> &v) {
+void ReverseArray(vector<int> &v) {
+  int left = 0;
+  int right = v.size() - 1;
 
+  while (left < right) {
+    int t = v[left];
+    v[left] = v[right];
+    v[right] = t;
+
+    left++;
+    right--;
+  }
 }
 
 void Zadanie6() {
+  vector<int> v = WriteVector();
+  ReverseArray(v);
 
+  cout << "Элементы в обратном порядке: ";
+
+  for (int i : v) {
+    cout << i << " ";
+  }
 }
 
 
