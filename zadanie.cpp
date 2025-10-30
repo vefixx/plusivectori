@@ -188,6 +188,29 @@ void Zadanie9() {
   }
 }
 
+// ------------------------ 10
+void DeleteZero(vector<int> &v) {
+  for (int i = 0; i < v.size(); ) {
+    if (v[i] == 0) {
+      v.erase(v.begin() + i);
+    } else {
+      i++;
+    }
+  }
+}
+
+void Zadanie10() {
+  vector<int> v = WriteVector();
+  DeleteZero(v);
+
+  cout << "Элементы без нулей: ";
+
+  for (int i : v) {
+    cout << i << " ";
+  }
+}
+
+
 
 
 

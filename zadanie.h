@@ -35,8 +35,12 @@ void Zadanie6();
 int LocalMaximumCount(const vector<int>& v);
 void Zadanie7();
 
-// 8
+// 9
 vector<int> Merge(const vector<int>& a, const vector<int>& b);
 void Zadanie9();
+
+// 10
+void DeleteZero(vector<int>& v);
+void Zadanie10();
 
 #endif //PLUSIVECTORI_ZADANIE1_H
