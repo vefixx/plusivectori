@@ -37,6 +37,9 @@ int main() {
     case 6:
       Zadanie6();
       break;
+    case 7:
+      Zadanie7();
+      break;
     default:
       cout << "Введен неверный номер" << endl;
       break;

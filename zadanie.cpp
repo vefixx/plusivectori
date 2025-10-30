@@ -90,7 +90,6 @@ double Average(const vector<int> &v) {
 
 void Zadanie4() {
   vector<int> v = WriteVector();
-
   cout << "Среднее арифметическое элементов: " << Average(v) << endl;
 }
 
@@ -142,6 +141,23 @@ void Zadanie6() {
   }
 }
 
+// -------------------------------- 7
+int LocalMaximumCount(const vector<int> &v) {
+  int count = 0;
+
+  for (int i = 1; i < v.size()-1; i++) {
+    if (v[i] > v[i-1] && v[i] > v[i+1]) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+void Zadanie7() {
+  vector<int> v = WriteVector();
+  cout << "Количество локальных максимумов: " << LocalMaximumCount(v) << endl;
+}
 
 
 

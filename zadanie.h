@@ -31,4 +31,8 @@ void Zadanie5();
 void ReverseArray(const vector<int>& v);
 void Zadanie6();
 
+// 7
+int LocalMaximumCount(const vector<int>& v);
+void Zadanie7();
+
 #endif //PLUSIVECTORI_ZADANIE1_H
