@@ -1,18 +1,68 @@
 #include "zadanie.h"
 #include <iostream>
 #include "vector"
+#include <ctime>
+#include <fstream>
 
 vector<int> WriteVector() {
-  int n, num;
+  int choice;
+  cout << "Введите как заполнить массив: \n"
+      "1) Из файла a.txt\n"
+      "2) С клавиатуры\n"
+      "3) Рандомно" << endl;
+  cin >> choice;
+
   vector<int> v;
 
-  cout << "Введите количество элементов: ";
-  cin >> n;
-  cout << "Введите " << n << " числа: ";
+  switch (choice) {
+    case 1: {
+      ifstream file("a.txt");
 
-  for (; n > 0; n--) {
-    cin >> num;
-    v.push_back(num);
+      int num;
+      while (file >> num) {
+        v.push_back(num);
+      }
+
+      file.close();
+      break;
+    }
+    case 2: {
+      int n;
+
+      cout << "Введите количество элементов: ";
+      cin >> n;
+
+      int num;
+      cout << "Введите " << n << " числа: ";
+
+      for (; n > 0; n--) {
+        cin >> num;
+        v.push_back(num);
+      }
+      break;
+    }
+    case 3: {
+      int n;
+
+      cout << "Введите количество элементов: ";
+      cin >> n;
+
+      srand(time(0));
+      for (; n > 0; n--) {
+        v.push_back(rand() % 201 - 100);
+      }
+
+      cout << "Сгенерированный массив: " << endl;
+      for (int i = 0; i < v.size() - 1; i++) {
+        cout << v[i] << " ";
+      }
+
+      cout << endl;
+      break;
+    }
+    default:
+      cout << "Неверный ввод" << endl;
+      return WriteVector();
   }
 
   return v;
@@ -22,7 +72,7 @@ vector<int> WriteVector() {
 // --------------------- №1
 int Sum(const vector<int> &v) {
   int sum = 0;
-  for (int i : v) {
+  for (int i: v) {
     sum += i;
   }
   return sum;
@@ -40,7 +90,7 @@ int CountEven(const vector<int> &v) {
 
   int count = 0;
 
-  for (int i : v) {
+  for (int i: v) {
     if (i % 2 == 0) {
       count++;
     }
@@ -58,7 +108,7 @@ void Zadanie2() {
 // ----------------------------- №3
 int MaxElement(const vector<int> &v) {
   int max = -9999;
-  for (int i : v) {
+  for (int i: v) {
     if (i > max)
       max = i;
   }
@@ -68,7 +118,7 @@ int MaxElement(const vector<int> &v) {
 
 int MinElement(const vector<int> &v) {
   int min = 9999;
-  for (int i : v) {
+  for (int i: v) {
     if (i < min) {
       min = i;
     }
@@ -85,7 +135,7 @@ void Zadanie3() {
 
 //  ------------------------- №4
 double Average(const vector<int> &v) {
-  return Sum(v) / (double)v.size();
+  return Sum(v) / (double) v.size();
 }
 
 void Zadanie4() {
@@ -96,7 +146,7 @@ void Zadanie4() {
 
 // -------------------- 5
 void CountPosNeg(const vector<int> &v, int &neg, int &pos, int &zero) {
-  for (int i : v) {
+  for (int i: v) {
     if (i < 0)
       neg++;
     else if (i > 0)
@@ -136,7 +186,7 @@ void Zadanie6() {
 
   cout << "Элементы в обратном порядке: ";
 
-  for (int i : v) {
+  for (int i: v) {
     cout << i << " ";
   }
 }
@@ -145,8 +195,8 @@ void Zadanie6() {
 int LocalMaximumCount(const vector<int> &v) {
   int count = 0;
 
-  for (int i = 1; i < v.size()-1; i++) {
-    if (v[i] > v[i-1] && v[i] > v[i+1]) {
+  for (int i = 1; i < v.size() - 1; i++) {
+    if (v[i] > v[i - 1] && v[i] > v[i + 1]) {
       count++;
     }
   }
@@ -162,11 +212,11 @@ void Zadanie7() {
 // ------------------------ 9
 vector<int> Merge(const vector<int> &a, const vector<int> &b) {
   vector<int> merged;
-  for (int i : a) {
+  for (int i: a) {
     merged.push_back(i);
   }
 
-  for (int i : b) {
+  for (int i: b) {
     merged.push_back(i);
   }
 
@@ -179,18 +229,18 @@ void Zadanie9() {
   cout << "Массив №2:" << endl;
   vector<int> b = WriteVector();
 
-  vector<int> merged = Merge(a,b);
+  vector<int> merged = Merge(a, b);
 
   cout << "Объединенный массив: ";
 
-  for (int i : merged) {
+  for (int i: merged) {
     cout << i << " ";
   }
 }
 
 // ------------------------ 10
 void DeleteZero(vector<int> &v) {
-  for (int i = 0; i < v.size(); ) {
+  for (int i = 0; i < v.size();) {
     if (v[i] == 0) {
       v.erase(v.begin() + i);
     } else {
@@ -205,17 +255,7 @@ void Zadanie10() {
 
   cout << "Элементы без нулей: ";
 
-  for (int i : v) {
+  for (int i: v) {
     cout << i << " ";
   }
 }
-
-
-
-
-
-
-
-
-
-
