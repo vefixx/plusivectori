@@ -42,14 +42,17 @@ vector<int> WriteVector() {
       break;
     }
     case 3: {
-      int n;
+      int n, a, b;
 
       cout << "Введите количество элементов: ";
       cin >> n;
 
+      cout << "Введите диапазон от a до b: " << endl;
+      cin >> a >> b;
+
       srand(time(0));
       for (; n > 0; n--) {
-        v.push_back(rand() % 201 - 100);
+        v.push_back(a + rand() % (b - a + 1));
       }
 
       cout << "Сгенерированный массив: " << endl;
